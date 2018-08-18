@@ -27,6 +27,10 @@ public class WebServer {
     }
 
     public void initialize() {
+
+        staticFiles.location("/public");
+
+        get(HOME_URL, new GetHomeRoute(templateEngine));
         // maps
 
         /*
@@ -54,5 +58,7 @@ public class WebServer {
         // Submit a turn
         post(SUBMIT_TURN_URL, new PostSubmitTurnRoute(playerLobby, gson));
         */
+
+        System.out.println("your server is running on localhost:4567");
     }
 }

@@ -7,6 +7,7 @@ import ui.WebServer;
  * The entry point to the application
  */
 public class Main {
+
     public static void main(String[] args) {
         // The engine processing freemarker templates throughout the whole
         // program
