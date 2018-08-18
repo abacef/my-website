@@ -20,6 +20,7 @@ public class GetHomeRoute implements Route {
         Map<String, Object> viewMap = new HashMap<>();
 
         viewMap.put("commentsEmail", emailToSendCommentsTo);
+        viewMap.put("clientIPAddress", request.ip());
         return te.render(new ModelAndView(viewMap, "home.ftl"));
     }
 }
