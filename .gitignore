@@ -6,3 +6,46 @@
 ############
 .idea/
 *.iml
+node/
+
+# Webstorm #
+############
+src/main/resources/.idea
+
+# react #
+############
+
+
+# compile time outputs
+src/main/resources/build/
+src/main/resources/node/
+src/main/resources/node_modules/
+
+
+
+
+# production
+
+src/main/resources/build
+
+
+
+# misc
+
+src/main/resources/.DS_Store
+
+src/main/resources/.env.local
+
+src/main/resources/.env.development.local
+
+src/main/resources/.env.test.local
+
+src/main/resources/.env.production.local
+
+
+
+src/main/resources/npm-debug.log*
+
+src/main/resources/yarn-debug.log*
+
+src/main/resources/yarn-error.log*
