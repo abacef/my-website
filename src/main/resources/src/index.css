@@ -1,0 +1,43 @@
+body {
+    background-color: #ffe08a /* #FFCC00 */; /* Changes the background color */
+    padding: 20px;
+    margin: 0;
+}
+h1, h2, p, ul, li {
+    font-family: Consolas, sans-serif;
+}
+
+.basic-info h2 {
+    padding: 0;
+    margin: 0;
+}
+ul.header li {
+    display: inline;
+    list-style-type: none;
+    margin: 0;
+}
+ul.header {
+    background-color: #000; /* changes the background of the nav header */
+    padding: 0;
+}
+ul.header li a {
+    color: #FFF; /* changes the text color in the nav bar */
+    font-weight: bold;
+    text-decoration: none;
+    padding: 20px;
+    display: inline-block;
+}
+.content {
+    background-color: #999999 /* #FFF */; /* color of content background */
+    padding: 20px;
+}
+.content h2 {
+    padding: 0;
+    margin: 0;
+}
+.content li {
+    margin-bottom: 10px;
+}
+.active {
+    background-color: #0099FF; /* an active nav bar */
+}

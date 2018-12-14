@@ -1,6 +1,6 @@
 import static spark.Spark.get;
-import static spark.SparkBase.port;
-import static spark.SparkBase.staticFileLocation;
+import static spark.Spark.port;
+import static spark.Spark.staticFileLocation;
 
 public class HelloWorld {
 
