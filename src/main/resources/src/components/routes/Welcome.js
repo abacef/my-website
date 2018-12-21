@@ -6,7 +6,7 @@ export default class Welcome extends Component {
 		super();
 
 		this.state = {
-			greeting: "This is an unfetched greeting. This frontend must not be communicating with the backend correctly"
+			greeting: "This is an unfetched greeting. This frontend must not be communicating with the backend correctly",
 		}
 	}
 
@@ -19,7 +19,7 @@ export default class Welcome extends Component {
 	}
 
 	render() {
-		console.log("rendering " + this.constructor.name);
+		console.log((this.state._mounted ? "Re-" : "") + "Rendering " + this.constructor.name);
 		return (
 			<div>
 				<h2>{this.state.greeting}</h2>
@@ -31,4 +31,5 @@ export default class Welcome extends Component {
 			</div>
 		);
 	}
+
 }

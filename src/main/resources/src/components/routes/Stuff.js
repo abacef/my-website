@@ -2,6 +2,7 @@ import React, { Component } from "react";
 
 export default class Stuff extends Component {
 	render() {
+		console.log("Rendering " + this.constructor.name);
 		return (
 			<div>
 				<h2>STUFF</h2>

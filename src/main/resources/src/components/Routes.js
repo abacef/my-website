@@ -16,6 +16,7 @@ import RestAPITutorial from "./routes/RestAPITutorial";
 export default class Routes extends Component {
 
 	render() {
+		console.log("Rendering " + this.constructor.name);
 		return (
 			<div className="content">
 				<Route exact path="/" component={Welcome}/>
