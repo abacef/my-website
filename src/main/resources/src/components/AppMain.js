@@ -1,57 +1,18 @@
 import React, { Component } from 'react';
-import {
-	Route,
-	NavLink,
-	BrowserRouter
-} from "react-router-dom";
-import Welcome from "./Welcome";
-import Stuff from "./Stuff";
-import Contact from "./Contact";
 
-export default class App extends Component {
+import { BrowserRouter } from "react-router-dom";
 
-	constructor(props) {
-		super();
-	}
+import Routes from "./Routes";
+import SiteHeader from "./SiteHeader";
+
+export default class AppMain extends Component {
 
 	render() {
-		console.log("rendering " + this.constructor.name);
 		return (
 			<BrowserRouter>
 				<div>
-					<table className="basic-info">
-						<tr>
-							<td>
-								<img src="/img/me.jpg" width="150px" alt="logo"/>
-							</td>
-							<td>
-								<table>
-									<tr>
-										<h2>Mark Nash</h2>
-									</tr>
-									<tr>
-										<h2>BS/MS Computer Science student at Rochester Institute of Technology</h2>
-									</tr>
-									<tr>
-										<h2>Expected graduation: May 2021</h2>
-									</tr>
-									<tr>
-										<ul className="header">
-											<li><NavLink exact to="/">Welcome</NavLink></li>
-											<li><NavLink to="/stuff">Stuff</NavLink></li>
-											<li><NavLink to="/contact">Contact</NavLink></li>
-										</ul>
-									</tr>
-								</table>
-							</td>
-						</tr>
-					</table>
-
-					<div className="content">
-						<Route exact path="/" component={Welcome}/>
-						<Route path="/stuff" component={Stuff}/>
-						<Route path="/contact" component={Contact}/>
-					</div>
+					<SiteHeader />
+					<Routes />
 				</div>
 			</BrowserRouter>
 
