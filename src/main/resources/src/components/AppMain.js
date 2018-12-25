@@ -21,13 +21,6 @@ export default class AppMain extends Component {
 			/*
 
 <!--
-						Projects
-						Courses and Schedules
-						Contact
-						Professional Interests
-						Work Experience
-						My Car
-						Rest API Tutorial
 						WebAssembly Sudoku Solver Tutorial
 						-->
 

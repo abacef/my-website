@@ -5,7 +5,7 @@ import NavBar from "./site-header/NavBar"
 export default class SiteHeader extends Component {
 
 	constructor(props) {
-		super();
+		super(props);
 
 		this.state = {
 			inAPIState: false
@@ -13,60 +13,76 @@ export default class SiteHeader extends Component {
 
 		this.toggleAPIStateOn = this.toggleAPIStateOn.bind(this);
 		this.toggleAPIStateOff = this.toggleAPIStateOff.bind(this);
+		this.navBarComponent = this.navBarComponent.bind(this);
 	}
 
+	/** Will get called by clicking anything but the rest api tutorial in the nav bar */
 	toggleAPIStateOn() {
 		this.setState({inAPIState: true});
 	}
 
-	/** Will get called by grandchildren (children of NavBar) */
+	/** Will get called by clicking the rest api tutorial in the nav bar */
 	toggleAPIStateOff() {
 		this.setState({inAPIState: false});
 	}
 
+	navBarComponent() {
+		return <NavBar ifAPI={this.toggleAPIStateOn} ifNotAPI={this.toggleAPIStateOff}/>
+	}
+
 	render() {
-		console.log("Rendering " + this.constructor.name);
+		console.log("Rendering " + this.constructor.name + " in restapistate " + this.state.inAPIState);
 
 		if (this.state.inAPIState) {
 			return (
-				<div onClick={this.toggleAPIStateOn}>
-					<NavBar />
-				</div>
+				this.navBarComponent()
 			);
 		}
 
 		// else
 		return (
 			<table className="basic-info">
-				<tr>
+				<tbody>
+					<tr>
 
-					<td>
-						<img src="/img/me.jpg" width="150px" alt="logo"/>
-					</td>
+						<td>
+							<img src="/img/me.jpg" width="150px" alt="logo"/>
+						</td>
 
-					<td>
-						<table>
+						<td>
+							<table>
+								<tbody>
 
-							<tr>
-								<h2>Mark Nash</h2>
-							</tr>
+									<tr>
+										<td>
+											<h2>Mark Nash</h2>
+										</td>
+									</tr>
 
-							<tr>
-								<h2>BS/MS Computer Science student at Rochester Institute of Technology</h2>
-							</tr>
+									<tr>
+										<td>
+											<h2>BS/MS Computer Science student at Rochester Institute of Technology</h2>
+										</td>
+									</tr>
 
-							<tr>
-								<h2>Expected graduation: May 2021</h2>
-							</tr>
+									<tr>
+										<td>
+											<h2>Expected graduation: May 2021</h2>
+										</td>
+									</tr>
 
-							<tr onClick={this.toggleAPIStateOn}>
-								<NavBar />
-							</tr>
+									<tr>
+										<td>
+											{this.navBarComponent()}
+										</td>
+									</tr>
 
-						</table>
-					</td>
+								</tbody>
+							</table>
+						</td>
 
-				</tr>
+					</tr>
+				</tbody>
 			</table>
 		);
 	}
