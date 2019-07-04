@@ -67,7 +67,7 @@ export default class SiteHeader extends Component {
 
 									<tr>
 										<td>
-											<h2>Expected graduation: May 2021</h2>
+											<h2>Expected graduation: Dec 2020</h2>
 										</td>
 									</tr>
 

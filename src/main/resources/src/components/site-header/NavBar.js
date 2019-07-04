@@ -3,9 +3,9 @@ import {NavLink} from "react-router-dom";
 
 export default class NavBar extends Component {
 
-	constructor(props) {
-		super(props);
-	}
+	// constructor(props) {
+	// 	super(props);
+	// }
 
 	render() {
 		console.log("Rendering " + this.constructor.name);
