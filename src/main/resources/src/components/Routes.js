@@ -15,14 +15,14 @@ import RestAPITutorial from "./routes/RestAPITutorial";
  */
 export default class Routes extends Component {
 
-	render() {
-		console.log("Rendering " + this.constructor.name);
-		return (
-			<div className="content">
-				<Route exact path="/" component={Welcome}/>
-				<Route path="/stuff" component={Stuff}/>
-				<Route path="/bugs" component={RestAPITutorial}/>
-			</div>
-		)
-	}
+  render() {
+    console.log("Rendering " + this.constructor.name);
+    return (
+      <div className="content">
+        <Route exact path="/" component={Welcome}/>
+        <Route path="/stuff" component={Stuff}/>
+        <Route path="/bugs" component={RestAPITutorial}/>
+      </div>
+    )
+  }
 }
