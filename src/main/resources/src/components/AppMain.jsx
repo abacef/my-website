@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { BrowserRouter } from "react-router-dom";
+import { HashRouter } from "react-router-dom";
 
 import Routes from "./Routes";
 import SiteHeader from "./SiteHeader";
@@ -10,12 +10,12 @@ export default class AppMain extends Component {
   render() {
     console.log("Rendering " + this.constructor.name);
     return (
-      <BrowserRouter>
+      <HashRouter>
         <div>
           <SiteHeader />
           <Routes />
         </div>
-      </BrowserRouter>
+      </HashRouter>
 
 
       /*

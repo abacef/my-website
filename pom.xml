@@ -61,7 +61,7 @@
                 </configuration>
             </plugin>
 
-            <!-- To create a production build jar (after 'npm run build' is run) run 'mvn package', then 'java -jar target/*with-dependencies.jar' -->
+            <!-- To create a production build jar (after 'npm run build' is run) run 'mvn clean package', then 'java -jar target/*with-dependencies.jar' -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-assembly-plugin</artifactId>
