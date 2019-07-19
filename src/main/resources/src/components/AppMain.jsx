@@ -8,7 +8,6 @@ import SiteHeader from "./SiteHeader";
 export default class AppMain extends Component {
 
   render() {
-    console.log("Rendering " + this.constructor.name);
     return (
       <HashRouter>
         <div>

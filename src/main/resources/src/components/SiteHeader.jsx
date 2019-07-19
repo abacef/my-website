@@ -31,8 +31,6 @@ export default class SiteHeader extends Component {
   }
 
   render() {
-    console.log("Rendering " + this.constructor.name + " in restapistate " + this.state.inAPIState);
-
     if (this.state.inAPIState) {
       return (
         this.navBarComponent()

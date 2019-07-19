@@ -4,6 +4,7 @@ import {Route} from "react-router-dom";
 import Welcome from "./routes/Welcome";
 import Stuff from "./routes/Stuff";
 import RestAPITutorial from "./routes/RestAPITutorial";
+import MyCar from "./routes/MyCar";
 
 /**
  * This div is where the content of a route will render when someone selects the hyperlink bound to this
@@ -16,12 +17,12 @@ import RestAPITutorial from "./routes/RestAPITutorial";
 export default class Routes extends Component {
 
   render() {
-    console.log("Rendering " + this.constructor.name);
     return (
       <div className="content">
         <Route exact path="/" component={Welcome}/>
         <Route path="/stuff" component={Stuff}/>
         <Route path="/bugs" component={RestAPITutorial}/>
+        <Route path="/my-car" component={MyCar}/>
       </div>
     )
   }

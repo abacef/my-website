@@ -3,7 +3,7 @@ import React, { Component } from "react";
 export default class Welcome extends Component {
 
   constructor(props) {
-    super();
+    super(props);
 
     this.state = {
       greeting: "This is an unfetched greeting. This frontend must not be communicating with the backend correctly",
@@ -19,7 +19,6 @@ export default class Welcome extends Component {
   }
 
   render() {
-    console.log((this.state._mounted ? "Re-" : "") + "Rendering " + this.constructor.name);
     return (
       <div>
         <h2>{this.state.greeting}</h2>
