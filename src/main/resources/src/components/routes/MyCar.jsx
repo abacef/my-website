@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import RSSParser from "rss-parser";
+import GasMileageEntry from "./my-car/GasMileageEntry";
 
 const CORS_PROXY = "https://cors-anywhere.herokuapp.com/";
+const FUELLY_RSS_LINK = "http://www.fuelly.com/car/hyundai/elantra/2008/abacef/377331/rss-us";
 
 export default class MyCar extends Component {
 
@@ -9,22 +11,23 @@ export default class MyCar extends Component {
     super(props);
 
     this.state = {
-      greeting: "",
+      linkToMyCar: "",
+      items: []
     };
-    this.parseGasMilageFeed = this.parseGasMilageFeed.bind(this);
+
+    this.extractDataFromFeed = this.extractDataFromFeed.bind(this);
   }
 
   componentDidMount() {
     let parser = new RSSParser();
-    parser.parseURL(CORS_PROXY + "http://www.fuelly.com/car/hyundai/elantra/2008/abacef/377331/rss-us", function(err, feed) {
-      console.log(feed.title);
-      feed.items.forEach(function(entry) {
-        console.log(entry.title + ':' + entry.link);
-      })
-    })
+    parser.parseURL(CORS_PROXY + FUELLY_RSS_LINK, this.extractDataFromFeed)
   }
 
-  parseGasMilageFeed(xmlText) {
+  extractDataFromFeed(err, feed) {
+    this.setState({
+      linkToMyCar: feed.link,
+      items: feed.items
+    });
 
   }
 
@@ -32,7 +35,7 @@ export default class MyCar extends Component {
     return (
         <div>
           <p>Check out my fuelly gas mileage feed. I log each fill up on fuelly.com</p>
-          <h2>{this.state.greeting}</h2>
+          {this.state.items.map(item => <GasMileageEntry item={item}/>)}
         </div>
     );
   }
