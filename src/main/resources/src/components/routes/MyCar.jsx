@@ -28,14 +28,21 @@ export default class MyCar extends Component {
       linkToMyCar: feed.link,
       items: feed.items
     });
-
+    console.log(feed.items)
   }
 
   render() {
     return (
-        <div>
-          <p>Check out my fuelly gas mileage feed. I log each fill up on fuelly.com</p>
-          {this.state.items.map(item => <GasMileageEntry item={item}/>)}
+        <div className={"my-car-content"}>
+          <p>
+            Check out last 20 fuel ups on <a
+              href="http://www.fuelly.com/car/hyundai/elantra/2008/abacef/377331">
+                fuelly
+              </a>
+          </p>
+          <div className={"flex"}>
+            {this.state.items.map(item => <GasMileageEntry item={item}/>)}
+          </div>
         </div>
     );
   }

@@ -9,28 +9,24 @@ export default class GasMileageEntry extends Component {
     super(props);
     const item = this.props.item;
 
-    const date = new Date(item.pubDate);
-    const data = new MPGItem(item.contentSnippet);
+    const date = new Date(item.title.split(" on ")[1]);
+    const fillUpData = new MPGItem(item.contentSnippet);
+    console.log(fillUpData.price, fillUpData.miles, fillUpData.gallons);
     this.state = {
       year: date.getFullYear(),
       month: MONTH_MAP[date.getMonth()],
       day: date.getDate(),
-      miles: data.miles,
-      gallons: data.gallons,
-      price: data.price
-    }
+      miles: fillUpData.miles,
+      gallons: fillUpData.gallons,
+      price: fillUpData.price
+    };
   }
 
   render() {
     return (
-        <div>
+        <div className="mpg-entry">
+          <p>{this.state.month} {this.state.day} {this.state.year}</p>
           <table>
-
-            <thead>
-              <tr>
-                <th>{this.state.month} {this.state.day} {this.state.year}</th>
-              </tr>
-            </thead>
 
             <tbody>
               <tr>
@@ -43,12 +39,10 @@ export default class GasMileageEntry extends Component {
                 <td>{this.state.gallons}</td>
                 <td>{this.state.price}</td>
               </tr>
-              <tr>
-                <td>{(this.state.miles / this.state.gallons).toFixed(2)}</td>
-              </tr>
             </tbody>
 
           </table>
+          <p>{(this.state.miles / this.state.gallons).toFixed(2)}</p>
         </div>
     );
   }

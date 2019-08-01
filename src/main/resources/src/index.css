@@ -29,7 +29,7 @@ ul.header li a {
 }
 .content {
     background-color: #999999 /* #FFF */; /* color of content background */
-    padding: 20px;
+    padding: 10px;
 }
 .content h2 {
     padding: 0;
@@ -40,4 +40,33 @@ ul.header li a {
 }
 .active {
     background-color: #0099FF; /* an active nav bar */
+}
+.my-car-content p {
+    margin: 10px;
+}
+.mpg-entry {
+    background-color: aquamarine;
+    padding: 5px;
+    border: 1px solid black;
+    margin: 10px;
+}
+.mpg-entry p {
+    text-align: center;
+    font-weight: bold;
+}
+.mpg-entry table {
+    border-spacing: 10px;
+}
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+}
+.loader {
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid #3498db;
+    width: 120px;
+    height: 120px;
+    -webkit-animation: spin 2s linear infinite; /* Safari */
+    animation: spin 2s linear infinite;
 }
