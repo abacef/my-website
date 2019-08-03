@@ -4,7 +4,16 @@ body {
     margin: 0;
 }
 h1, h2, p, ul, li {
-    font-family: Consolas, sans-serif;
+    font-family: Ubuntu, sans-serif;
+}
+a:link {
+    color: #0099ff;
+}
+a:visited {
+    color: #0099ff;
+}
+a:hover {
+    color: #3354FF;
 }
 
 .basic-info h2 {
@@ -28,8 +37,9 @@ ul.header li a {
     display: inline-block;
 }
 .content {
-    background-color: #999999 /* #FFF */; /* color of content background */
+    background-color: #000 /* #FFF */; /* color of content background */
     padding: 10px;
+    color: #FFF;
 }
 .content h2 {
     padding: 0;
@@ -45,10 +55,11 @@ ul.header li a {
     margin: 10px;
 }
 .mpg-entry {
-    background-color: aquamarine;
+    background-color: #0099FF;
     padding: 5px;
     border: 1px solid black;
     margin: 10px;
+    color: #000
 }
 .mpg-entry p {
     text-align: center;
@@ -64,7 +75,7 @@ ul.header li a {
 .loader {
     border: 16px solid #f3f3f3;
     border-radius: 50%;
-    border-top: 16px solid #3498db;
+    border-top: 16px solid #0099FF;
     width: 120px;
     height: 120px;
     -webkit-animation: spin 2s linear infinite; /* Safari */
