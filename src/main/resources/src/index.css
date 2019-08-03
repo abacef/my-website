@@ -1,7 +1,9 @@
+/* the default of the whole application */
 body {
-    background-color: #ffe08a /* #FFCC00 */; /* Changes the background color */
+    background-color: #171717;
     padding: 20px;
     margin: 0;
+    color: white;
 }
 h1, h2, p, ul, li {
     font-family: Ubuntu, sans-serif;
@@ -28,20 +30,19 @@ ul.header li {
     margin: 0;
 }
 ul.header {
-    background-color: #000; /* changes the background of the nav header */
+    background-color: black; /* changes the background of the nav header */
     padding: 0;
 }
 ul.header li a {
-    color: #FFF; /* changes the text color in the nav bar */
+    color: white; /* changes the text color in the nav bar */
     font-weight: bold;
     text-decoration: none;
     padding: 20px;
     display: inline-block;
 }
 .content {
-    background-color: #000 /* #FFF */; /* color of content background */
+    background-color: black /* #FFF */; /* color of content background */
     padding: 10px;
-    color: #FFF;
 }
 .content h2 {
     padding: 0;
@@ -61,7 +62,7 @@ ul.header li a {
     padding: 5px;
     border: 1px solid black;
     margin: 10px;
-    color: #000
+    color: black;
 }
 .mpg-entry p {
     text-align: center;
@@ -76,7 +77,7 @@ ul.header li a {
 }
 .loader {
     margin: 0 auto;     /* center on screen */
-    border: 16px solid #f3f3f3;
+    border: 16px solid white;
     border-radius: 50%;
     border-top: 16px solid #0099FF;
     width: 120px;
@@ -93,4 +94,7 @@ ul.header li a {
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
+}
+.footer {
+    text-align: center;
 }

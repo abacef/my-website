@@ -4,17 +4,21 @@ import { HashRouter } from "react-router-dom";
 
 import Routes from "./Routes";
 import SiteHeader from "./SiteHeader";
+import SiteFooter from "./SiteFooter";
 
 export default class AppMain extends Component {
 
   render() {
     return (
-      <HashRouter>
         <div>
-          <SiteHeader />
-          <Routes />
+          <HashRouter>
+            <div>
+              <SiteHeader />
+              <Routes />
+            </div>
+          </HashRouter>
+          <SiteFooter />
         </div>
-      </HashRouter>
 
 
       /*
@@ -33,25 +37,7 @@ export default class AppMain extends Component {
           <th align="left">My car</th>
         </tr>
       </table>
-
-    <font size=-2>
-  Made by Mark Nash using <a href="http://sparkjava.com">spark</a> and
-    <a href="https://freemarker.apache.org/">freemarker</a>. Please send comments to ${commentsEmail}
-    <br/>Your IP address is this just in case you were wondering
-    </font>
     */
-
-      /*
-      <div className="App-header">
-        <img src="img/me.jpg" className="App-logo" alt="logo" />
-
-        <h2>Welcome to React</h2>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload!
-        </p>
-        <p>{this.state.greeting}</p>
-      </div>
-      */
     );
   }
 }

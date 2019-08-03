@@ -11,7 +11,6 @@ export default class GasMileageEntry extends Component {
 
     const date = new Date(item.title.split(" on ")[1]);
     const fillUpData = new MPGItem(item.contentSnippet);
-    console.log(fillUpData.price, fillUpData.miles, fillUpData.gallons);
     this.state = {
       year: date.getFullYear(),
       month: MONTH_MAP[date.getMonth()],

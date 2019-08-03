@@ -26,6 +26,10 @@ export default class SiteHeader extends Component {
     this.setState({inAPIState: false});
   }
 
+  /**
+   * Returns a nav bar component with the hooks for turning on and off the rendering of the
+   * summary text and the image of my face when necessary
+   */
   navBarComponent() {
     return <NavBar ifAPI={this.toggleAPIStateOn} ifNotAPI={this.toggleAPIStateOff}/>
   }
