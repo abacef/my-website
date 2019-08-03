@@ -20,7 +20,7 @@ export default class Welcome extends Component {
 
   render() {
     return (
-      <div>
+      <div className={"welcome"}>
         <h2>{this.state.greeting}</h2>
         <p>Welcome to my website. Take a look around at my interests and hobbies.</p>
         <p>

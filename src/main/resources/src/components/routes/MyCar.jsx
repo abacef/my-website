@@ -16,6 +16,7 @@ export default class MyCar extends Component {
     };
 
     this.extractDataFromFeed = this.extractDataFromFeed.bind(this);
+    this.loadingCircleOrData = this.loadingCircleOrData.bind(this);
   }
 
   componentDidMount() {
@@ -31,18 +32,26 @@ export default class MyCar extends Component {
     console.log(feed.items)
   }
 
+  loadingCircleOrData() {
+    if (!this.state.linkToMyCar) {
+      return <div className="loader"/>
+    } else {
+      return <div className={"flex"}>
+        {this.state.items.map(item => <GasMileageEntry item={item}/>)}
+      </div>
+    }
+  }
+
   render() {
     return (
         <div className={"my-car-content"}>
           <p>
             Check out last 20 fuel ups from <a
               href="http://www.fuelly.com/car/hyundai/elantra/2008/abacef/377331">
-                fuelly
-              </a>
+              my car </a>
+            on fuelly
           </p>
-          <div className={"flex"}>
-            {this.state.items.map(item => <GasMileageEntry item={item}/>)}
-          </div>
+          {this.loadingCircleOrData()}
         </div>
     );
   }
