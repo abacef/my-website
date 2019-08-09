@@ -1,8 +1,19 @@
+package com.abacef;
+
 import static spark.Spark.get;
 import static spark.Spark.port;
 import static spark.Spark.staticFileLocation;
+import static spark.Spark.post;
 
-public class Main {
+import com.abacef.server.*;
+
+public final class MainApp {
+    public static final short BAD_REQUEST = 400;
+    public static final short CONFLICT = 409;
+    public static final short OK = 200;
+    public static final short CREATED = 201;
+
+    public static final String AN_EMPTY_STRING = "";
 
     /**
      * @param args if --production is the first argument from the command line, serve the webpage
@@ -19,7 +30,10 @@ public class Main {
         port(4567);
 
         // returns a "greeting" every time someone querys /greet in order to show that the server is running
-        get("/greet", (req, res) -> "Hello, World!");
+        get("/api/greet", (req, res) -> "Hello, World!");
 
+        DomainObject domainObject = new DomainObject();
+
+        post("/api/add-item", domainObject);
     }
 }

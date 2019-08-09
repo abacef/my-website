@@ -11,7 +11,7 @@ export default class Welcome extends Component {
   }
 
   componentDidMount() {
-    fetch("/greet").then(function (response) {
+    fetch("/api/greet").then(function (response) {
       return response.text();
     }).then((text) => {
       this.setState({greeting: text})
