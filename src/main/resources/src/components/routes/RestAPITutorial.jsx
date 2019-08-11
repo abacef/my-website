@@ -9,35 +9,67 @@ export default class RestAPITutorial extends Component {
       items: []
     };
 
-    this.addEntry = this.addEntry.bind(this);
+    this.addItem = this.addItem.bind(this);
+    this.addItemResponse = this.addItemResponse.bind(this);
+    this.getItems = this.getItems.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.loadingCircleOrData = this.loadingCircleOrData.bind(this);
   }
 
-  addEntry(event) {
-    console.log(this.state.value)
-    fetch("api/add-item", {
+  componentDidMount() {
+    this.getItems();
+  }
+
+  addItem(event) {
+    fetch("/api/add-item", {
       method: "POST",
       body: this.state.value
-    }).then(function (response) {
-      console.log(response);
-    })
+    }).then(this.addItemResponse);
+  }
+
+  addItemResponse(response) {
+    console.log(response);
+    this.getItems();
+  }
+
+  getItems() {
+    fetch("/api/get-items").then(function (response) {
+      return response.json();
+    }).then((json) => {
+      console.log(json);
+      this.setState({items: json.items});
+    });
   }
 
   handleChange(event) {
     this.setState({value: event.target.value})
   }
 
+  loadingCircleOrData() {
+    if (!this.state.items) {
+      return <div className="loader"/>
+    } else {
+      return <div className={"flex"}>
+        {this.state.items.map(item => item)}
+      </div>
+    }
+  }
+
   render() {
     return (
       <div>
 
-        <form onSubmit={this.addEntry}>
+        <form onSubmit={this.addItem}>
           <label>
             Name:
-            <input type="text" value={this.state.value} onChange={this.handleChange} />
+            <input type="text" 
+                   value={this.state.value}
+                   onChange={this.handleChange} />
           </label>
           <input type="submit" value="Submit" />
         </form>
+
+        {this.loadingCircleOrData()}
 
       </div>
     );

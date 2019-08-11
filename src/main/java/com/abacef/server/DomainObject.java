@@ -1,35 +1,28 @@
 package com.abacef.server;
 
-import spark.Request;
-import spark.Response;
-import spark.Route;
+import com.google.gson.Gson;
 
 import java.util.HashSet;
 import java.util.Set;
 
-import static com.abacef.MainApp.*;
-
-public class DomainObject implements Route {
+/**
+ * Stores strings.
+ * I do not want to do database things right now.
+ * Just a RestAPI proof of concept
+ */
+public class DomainObject {
     private Set<String> items;
 
     public DomainObject() {
-        this.items = new HashSet<>();
+        items = new HashSet<>();
     }
 
     public boolean addItem(String item) {
         return items.add(item);
     }
 
-    @Override
-    public Object handle(Request request, Response response) {
-        final String item = request.body();
-        if (item == null || item.isEmpty()) {
-            response.status(BAD_REQUEST);
-        } else if (!addItem(item)) {
-            response.status(CONFLICT);
-        } else {
-            response.status(CREATED);
-        }
-        return AN_EMPTY_STRING;
+    public String[] getAllItems() {
+        return (String[])items.toArray();
     }
+
 }

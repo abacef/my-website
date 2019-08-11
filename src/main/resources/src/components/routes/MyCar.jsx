@@ -29,7 +29,6 @@ export default class MyCar extends Component {
       linkToMyCar: feed.link,
       items: feed.items
     });
-    console.log(feed.items)
   }
 
   loadingCircleOrData() {
