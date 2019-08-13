@@ -21,8 +21,4 @@ public class DomainObject {
         return items.add(item);
     }
 
-    public String[] getAllItems() {
-        return (String[])items.toArray();
-    }
-
 }

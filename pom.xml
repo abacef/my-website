@@ -28,10 +28,18 @@
             <version>2.8.5</version>
         </dependency>
 
+        <!-- makes slf4j not say that it is defaulting to a no-op log implementation -->
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-nop</artifactId>
             <version>1.7.26</version>
+        </dependency>
+
+        <!-- postgres driver -->
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.2.6</version>
         </dependency>
 
     </dependencies>
