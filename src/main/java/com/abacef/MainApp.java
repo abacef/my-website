@@ -1,8 +1,17 @@
 package com.abacef;
 
 import com.abacef.server.*;
+import com.google.common.io.ByteStreams;
 import com.google.gson.Gson;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
@@ -23,19 +32,37 @@ public final class MainApp {
     private static final String SQL_USERNAME = "postgres";
     private static final String SQL_PASSWORD = "postgres";
 
+    private final static String PATH_TO_INDEX_HTML = "/build/index.html";
+
+    private static String INDEX_DOT_HTML_AS_STRING;
+
     /**
      * @param args if --production is the first argument from the command line, serve the webpage
      *             This program could be run for test otherwise to access the api calls
      */
     public static void main(String[] args) {
-        final boolean isProduction = args.length > 0 && args[0].equals("--production");
-        if (isProduction) {
-            // /build is where npm minifys and makes more efficient all the files in src/main/resources
-            staticFileLocation("/build");
-        }
+        final boolean onlyAPI = args.length == 1 && args[0].equals("--onlyAPI");
 
         // The same port as npm is listening to. See "proxy" of package.json
         port(4567);
+
+        if (!onlyAPI) {
+            // /build is where npm minifys and makes more efficient all the files in src/main/resources
+            staticFileLocation("/build");
+
+            try {
+                InputStream in = MainApp.class.getResourceAsStream(PATH_TO_INDEX_HTML);
+                INDEX_DOT_HTML_AS_STRING = new String(ByteStreams.toByteArray(in));
+            } catch (Exception e) {
+                e.printStackTrace();
+                return;
+            }
+
+            // these routes need to be directed back to the SPA to handle, not this server
+            get("/bugs", "text/html", (req, res) -> INDEX_DOT_HTML_AS_STRING);
+            get("/stuff", "text/html", (req, res) -> INDEX_DOT_HTML_AS_STRING);
+            get("/my-car", "text/html", (req, res) -> INDEX_DOT_HTML_AS_STRING);
+        }
 
         // returns a "greeting" every time someone querys /api/greet in order to show that the server is running
         get("/api/greet", (req, res) -> "Hello, World!");
