@@ -6,6 +6,10 @@ import React, {Component} from "react";
  */
 export default class SiteFooter extends Component {
 
+  shouldComponentUpdate(nextProps, nextState, nextContext) {
+    return false;
+  }
+
   render() {
     return (
         <div className={"footer"}>

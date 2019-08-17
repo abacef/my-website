@@ -25,11 +25,15 @@ export default class RestAPITutorial extends Component {
       method: "POST",
       body: this.state.value
     }).then(this.addItemResponse);
+    event.preventDefault();
   }
 
   addItemResponse(response) {
     console.log(response);
-    this.getItems();
+    if (response.status === 201) {
+      this.state.items.push(this.state.value);
+      this.setState({items: this.state.items})
+    }
   }
 
   getItems() {

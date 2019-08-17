@@ -4,44 +4,7 @@ import NavBar from "./site-header/NavBar"
 
 export default class SiteHeader extends Component {
 
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      inAPIState: false
-    };
-
-    this.toggleAPIStateOn = this.toggleAPIStateOn.bind(this);
-    this.toggleAPIStateOff = this.toggleAPIStateOff.bind(this);
-    this.navBarComponent = this.navBarComponent.bind(this);
-  }
-
-  /** Will get called by clicking anything but the rest api tutorial in the nav bar */
-  toggleAPIStateOn() {
-    this.setState({inAPIState: true});
-  }
-
-  /** Will get called by clicking the rest api tutorial in the nav bar */
-  toggleAPIStateOff() {
-    this.setState({inAPIState: false});
-  }
-
-  /**
-   * Returns a nav bar component with the hooks for turning on and off the rendering of the
-   * summary text and the image of my face when necessary
-   */
-  navBarComponent() {
-    return <NavBar ifAPI={this.toggleAPIStateOn} ifNotAPI={this.toggleAPIStateOff}/>
-  }
-
   render() {
-    if (this.state.inAPIState) {
-      return (
-        this.navBarComponent()
-      );
-    }
-
-    // else
     return (
       <table className="basic-info">
         <tbody>
@@ -75,7 +38,7 @@ export default class SiteHeader extends Component {
 
                   <tr>
                     <td>
-                      {this.navBarComponent()}
+                      <NavBar />
                     </td>
                   </tr>
 

@@ -85,7 +85,7 @@ public final class MainApp {
                     .getConnection(SQL_DATABASE_CONNECTION, SQL_USERNAME, SQL_PASSWORD);
         } catch (Exception e) {
             e.printStackTrace();
-            System.err.println(e.getClass().getName()+": "+e.getMessage());
+            System.err.println(e.getClass().getName() + ": " + e.getMessage());
             System.exit(1);
         }
         System.out.println("Opened database successfully");
