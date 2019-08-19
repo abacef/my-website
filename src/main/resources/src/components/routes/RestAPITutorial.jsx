@@ -1,12 +1,16 @@
 import React, { Component } from "react";
 
+import TopBar from "./rest-api-tutorial/TopBar"
+import Entries from "./rest-api-tutorial/Entries"
+
 export default class RestAPITutorial extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
       value: "",
-      items: []
+      items: [],
+      modalIsOpen: false
     };
 
     this.addItem = this.addItem.bind(this);
@@ -62,19 +66,8 @@ export default class RestAPITutorial extends Component {
   render() {
     return (
       <div>
-
-        <form onSubmit={this.addItem}>
-          <label>
-            Name:
-            <input type="text" 
-                   value={this.state.value}
-                   onChange={this.handleChange} />
-          </label>
-          <input type="submit" value="Submit" />
-        </form>
-
-        {this.loadingCircleOrData()}
-
+        <TopBar openModal={this.openModal}/>
+        <Entries loadData={this.loadingCircleOrData}/>
       </div>
     );
   }
