@@ -66,7 +66,7 @@ export default class RestAPITutorial extends Component {
   render() {
     return (
       <div>
-        <TopBar openModal={this.openModal}/>
+        <TopBar addItem={this.addItem} handleChange={this.handleChange}/>
         <Entries loadData={this.loadingCircleOrData}/>
       </div>
     );

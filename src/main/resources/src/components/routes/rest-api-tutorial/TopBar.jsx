@@ -2,14 +2,15 @@ import React, {Component} from "react";
 import Modal from "react-modal";
 
 const customStyles = {
-  content : {
-    top                   : '50%',
-    left                  : '50%',
-    right                 : 'auto',
-    bottom                : 'auto',
-    marginRight           : '-50%',
-    transform             : 'translate(-50%, -50%)'
-  }
+  content: {
+    top: "50%",
+    left: "50%",
+    right: "auto",
+    bottom: "auto",
+    marginRight: "-50%",
+    transform: "translate(-50%, -50%)",
+    backgroundColor: "#171717"
+  },
 };
 
 // Set app element for screen readers?
@@ -52,14 +53,30 @@ export default class TopBar extends Component {
               onAfterOpen={this.afterOpenModal}
               style={customStyles}
           >
-            <button onClick={this.closeModal}>x</button>
-            {/*<form onSubmit={this.addItem}>*/}
-            {/*  <label>*/}
-            {/*    Name:*/}
-            {/*    <input type="text" onChange={this.handleChange} />*/}
-            {/*  </label>*/}
-            {/*  <input type="submit" value="Submit" />*/}
-            {/*</form>*/}
+            <table>
+              <tbody>
+                <tr>
+                  <td>
+
+                    <button onClick={this.closeModal} className="xButton">x</button>
+
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+
+                    <form onSubmit={this.props.addItem}>
+                      <label>
+                        Name:
+                        <input type="text" onChange={this.props.handleChange} />
+                      </label>
+                      <input type="submit" value="Submit" />
+                    </form>
+
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </Modal>
 
         </div>
