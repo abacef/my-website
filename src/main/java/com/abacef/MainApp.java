@@ -4,16 +4,7 @@ import com.abacef.server.*;
 import com.google.common.io.ByteStreams;
 import com.google.gson.Gson;
 
-import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.URL;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.sql.Connection;
-import java.sql.DriverManager;
 
 import static spark.Spark.*;
 
@@ -26,11 +17,6 @@ public final class MainApp {
     public static final String RESPONSE_TYPE_JSON = "application/json";
 
     public static final String AN_EMPTY_STRING = "";
-
-    private static final String SQL_JAR_NAME = "org.postgresql.Driver";
-    private static final String SQL_DATABASE_CONNECTION = "jdbc:postgresql://localhost:5432/my_website";
-    private static final String SQL_USERNAME = "postgres";
-    private static final String SQL_PASSWORD = "postgres";
 
     private final static String PATH_TO_INDEX_HTML = "/build/index.html";
 
@@ -77,17 +63,5 @@ public final class MainApp {
             exception.printStackTrace();
         });
 
-        // connect to postgres
-        Connection c = null;
-        try {
-            Class.forName(SQL_JAR_NAME);
-            c = DriverManager
-                    .getConnection(SQL_DATABASE_CONNECTION, SQL_USERNAME, SQL_PASSWORD);
-        } catch (Exception e) {
-            e.printStackTrace();
-            System.err.println(e.getClass().getName() + ": " + e.getMessage());
-            System.exit(1);
-        }
-        System.out.println("Opened database successfully");
     }
 }
