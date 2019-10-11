@@ -101,3 +101,6 @@ ul.header li a {
 .xButton {
     float: right;
 }
+.errorMessage {
+    color: red;
+}

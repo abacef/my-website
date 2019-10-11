@@ -10,7 +10,8 @@ export default class RestAPITutorial extends Component {
     this.state = {
       value: "",
       items: [],
-      modalIsOpen: false
+      modalIsOpen: false,
+      message: ""
     };
 
     this.addItem = this.addItem.bind(this);
@@ -33,7 +34,9 @@ export default class RestAPITutorial extends Component {
   }
 
   addItemResponse(response) {
-    console.log(response);
+    response.text().then(text => {
+      this.setState({message: text});
+    });
     if (response.status === 201) {
       this.state.items.push(this.state.value);
       this.setState({items: this.state.items})
@@ -66,7 +69,7 @@ export default class RestAPITutorial extends Component {
   render() {
     return (
       <div>
-        <TopBar addItem={this.addItem} handleChange={this.handleChange}/>
+        <TopBar addItem={this.addItem} handleChange={this.handleChange} message={this.state.message}/>
         <Entries loadData={this.loadingCircleOrData}/>
       </div>
     );

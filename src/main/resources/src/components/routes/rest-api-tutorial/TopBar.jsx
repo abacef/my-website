@@ -42,6 +42,7 @@ export default class TopBar extends Component {
   }
 
   render() {
+    console.log("rendering top bar");
     return (
         <div>
           <button onClick={this.openModal}>+</button>
@@ -73,6 +74,11 @@ export default class TopBar extends Component {
                       <input type="submit" value="Submit" />
                     </form>
 
+                  </td>
+                </tr>
+                <tr>
+                  <td className="errorMessage">
+                    {this.props.message}
                   </td>
                 </tr>
               </tbody>
