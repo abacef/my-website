@@ -1,8 +1,10 @@
 package com.abacef;
 
+import com.abacef.configuration.Configuration;
 import com.abacef.server.*;
 import com.google.common.io.ByteStreams;
 import com.google.gson.Gson;
+import org.apache.commons.cli.*;
 
 import java.io.InputStream;
 
@@ -22,17 +24,19 @@ public final class MainApp {
 
     private static String INDEX_DOT_HTML_AS_STRING;
 
-    /**
-     * @param args if --production is the first argument from the command line, serve the webpage
-     *             This program could be run for test otherwise to access the api calls
-     */
     public static void main(String[] args) {
-        final boolean onlyAPI = args.length == 1 && args[0].equals("--onlyAPI");
+        Configuration config = new Configuration(args);
+        if (!config.parseSucceeded()) {
+            System.exit(1);
+        }
 
         // The same port as npm is listening to. See "proxy" of package.json
-        port(4567);
+        int port = config.getPort() != null ? config.getPort() : 4567;
+        System.out.println("listening on " + port);
+        port(port);
+        System.out.println("config.onlyAPI: " + config.onlyApi());
 
-        if (!onlyAPI) {
+        if (!config.onlyApi()) {
             // /build is where npm minifys and makes more efficient all the files in src/main/resources
             staticFileLocation("/build");
 
