@@ -4,7 +4,6 @@ import com.abacef.configuration.Configuration;
 import com.abacef.server.*;
 import com.google.common.io.ByteStreams;
 import com.google.gson.Gson;
-import org.apache.commons.cli.*;
 
 import java.io.InputStream;
 
@@ -31,7 +30,7 @@ public final class MainApp {
         }
 
         // The same port as npm is listening to. See "proxy" of package.json
-        int port = config.getPort() != null ? config.getPort() : 4567;
+        int port = config.getPort(); // call this as 4567
         System.out.println("listening on " + port);
         port(port);
         System.out.println("config.onlyAPI: " + config.onlyApi());

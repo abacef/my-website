@@ -45,7 +45,7 @@ export default class MyCar extends Component {
     return (
         <div className={"my-car-content"}>
           <p>
-            Check out last 20 fuel ups from <a
+            Check out the last 20 fuel ups from <a
               href="http://www.fuelly.com/car/hyundai/elantra/2008/abacef/377331">
               my car </a>
             on fuelly
