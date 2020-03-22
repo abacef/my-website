@@ -61,7 +61,22 @@ export default class Welcome extends Component {
           </tbody>
         </table>
 
-        <p>Welcome to my website. Take a look around at my interests and hobbies.</p>
+        <p>Welcome to my website. This is a work in progress.</p>
+        <h3>Implemented:</h3>
+        <ul>
+          <li>Basic website design considerations</li>
+          <li>You can see my most updated fuel economy for my Hyundai Elantra
+            through Fuelly (RSS feed from Fuelly.com)</li>
+        </ul>
+        <h3>In Progress:</h3>
+        <ul>
+          <li>Sudoku Solver performance comparison between the browser's
+            javascript, sending it to a server to be solved, and using
+            WebAssembly in the browser</li>
+          <li>A fictitious Bug tracker for my website (demonstration of a REST API queried microservice)</li>
+        </ul>
+
+          Take a look around at my interests and hobbies.
         <p>
           Don't forget to check out and interact with the basic REST API (this website's bug tracker) and an example
           of the epicness of WebAssembly (Sudoku solver).

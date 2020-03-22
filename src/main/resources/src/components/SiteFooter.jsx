@@ -14,7 +14,7 @@ export default class SiteFooter extends Component {
     return (
         <div className={"footer"}>
           <p>
-            Made by Mark Nash using <a href="http://sparkjava.com">Spark</a> and <a
+            <a href="https://github.com/abacef/my-website">This</a> site was Made by Mark Nash using <a href="http://sparkjava.com">Spark</a> and <a
               href="https://reactjs.org/">React</a>
           </p>
         </div>
