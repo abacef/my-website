@@ -76,12 +76,6 @@ export default class Welcome extends Component {
           <li>A fictitious Bug tracker for my website (demonstration of a REST API queried microservice)</li>
         </ul>
 
-          Take a look around at my interests and hobbies.
-        <p>
-          Don't forget to check out and interact with the basic REST API (this website's bug tracker) and an example
-          of the epicness of WebAssembly (Sudoku solver).
-        </p>
-
       </div>
     );
   }
