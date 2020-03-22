@@ -27,11 +27,11 @@ export default class RestAPITutorial extends Component {
   }
 
   addItem(event) {
-    fetch("/api/add-item", {
-      method: "POST",
-      body: this.state.value
-    }).then(this.addItemResponse);
-    event.preventDefault();
+    // fetch("/api/add-item", {
+    //   method: "POST",
+    //   body: this.state.value
+    // }).then(this.addItemResponse);
+    // event.preventDefault();
   }
 
   addItemResponse(response) {
@@ -45,12 +45,12 @@ export default class RestAPITutorial extends Component {
   }
 
   getItems() {
-    fetch("/api/get-items").then(function (response) {
-      return response.json();
-    }).then((json) => {
-      console.log(json);
-      this.setState({items: json.items});
-    });
+    // fetch("/api/get-items").then(function (response) {
+    //   return response.json();
+    // }).then((json) => {
+    //   console.log(json);
+    //   this.setState({items: json.items});
+    // });
   }
 
   handleChange(event) {
