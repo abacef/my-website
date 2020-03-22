@@ -15,12 +15,11 @@ src/main/resources/.idea
 # react #
 ############
 # compile time outputs
-src/main/resources/build/
 src/main/resources/node/
 src/main/resources/node_modules/
 
-# production
-src/main/resources/build
+# npm run build
+src/main/resources/build/
 
 # misc
 src/main/resources/.DS_Store
