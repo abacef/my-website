@@ -1,3 +1,0 @@
-[submodule "src/main/resources/build"]
-	path = src/main/resources/build
-	url = git@github.com:abacef/abacef.github.io.git
