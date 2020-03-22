@@ -2,6 +2,7 @@ import React, { Component } from "react";
 
 import TopBar from "./rest-api-tutorial/TopBar"
 import Entries from "./rest-api-tutorial/Entries"
+import Spinner from "../lib/Spinner";
 
 export default class RestAPITutorial extends Component {
 
@@ -58,7 +59,7 @@ export default class RestAPITutorial extends Component {
 
   loadingCircleOrData() {
     if (!this.state.items) {
-      return <div className="loader"/>
+      return <Spinner/>
     } else {
       return <div className={"flex"}>
         {this.state.items.map(item => item)}

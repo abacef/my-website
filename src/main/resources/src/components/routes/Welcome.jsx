@@ -6,16 +6,16 @@ export default class Welcome extends Component {
     super(props);
 
     this.state = {
-      greeting: "This is an unfetched greeting. This frontend must not be communicating with the backend correctly",
+      greeting: "Hello!",
     }
   }
 
   componentDidMount() {
-    fetch("/api/greet").then(function (response) {
-      return response.text();
-    }).then((text) => {
-      this.setState({greeting: text})
-    });
+    // fetch("/api/greet").then(function (response) {
+    //   return response.text();
+    // }).then((text) => {
+    //   this.setState({greeting: text})
+    // });
   }
 
   render() {
