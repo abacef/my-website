@@ -25,6 +25,20 @@
     <noscript>
       You need to enable JavaScript to run this app.
     </noscript>
+
+    <!-- Added script for static site jankyness. See 404.html in the hosted repo
+    https://dev.to/_evansalter/github-pages-and-single-page-apps -->
+    <script>
+      (function(){
+        var redirect = sessionStorage.redirect;
+        delete sessionStorage.redirect;
+        console.log("redirectt: " + redirect);
+        if (redirect && redirect != location.href) {
+          history.replaceState(null, null, redirect);
+        }
+      })();
+    </script>
+
     <div id="root"></div>
   </body>
 </html>
